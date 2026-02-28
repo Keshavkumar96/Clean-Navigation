@@ -7,18 +7,34 @@
 
 import SwiftUI
 
+// MARK: - Root View
+
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+ var body: some View {
+  TabView {
+   HomeTab()
+    .tabItem {
+     Label("Home", systemImage: "house")
     }
+   
+   SearchTab()
+    .tabItem {
+     Label("Search", systemImage: "magnifyingglass")
+    }
+   
+   ActivityTab()
+    .tabItem {
+     Label("Activity", systemImage: "bell")
+    }
+   
+   ProfileTab()
+    .tabItem {
+     Label("Profile", systemImage: "person")
+    }
+  }
+ }
 }
 
 #Preview {
-    ContentView()
+ ContentView()
 }
