@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ProfileTab: View {
-  @State private var navState = ProfileNavigationState()
+  @Bindable var navState: ProfileNavigationState
   
   var body: some View {
     NavigationStack(path: $navState.path) {

@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct HomeTab: View {
-  @State private var navState = HomeNavigationState()
+  @Bindable var navState: HomeNavigationState
   
   var body: some View {
     NavigationStack(path: $navState.path) {

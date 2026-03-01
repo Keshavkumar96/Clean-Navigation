@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ActivityTab: View {
- @State private var navState = ActivityNavigationState()
+ @Bindable var navState: ActivityNavigationState
  
  var body: some View {
   NavigationStack(path: $navState.path) {

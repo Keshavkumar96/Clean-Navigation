@@ -2,13 +2,20 @@ import SwiftUI
 
 struct SearchView1: View {
   @Environment(SearchNavigationState.self) var navState
+  
   var body: some View {
     VStack(spacing: 20) {
-      Image(systemName: "magnifyingglass").font(.system(size: 60)).foregroundStyle(.tint)
-      Text("Search Root").font(.title)
+      Image(systemName: "magnifyingglass")
+        .font(.system(size: 60))
+        .foregroundStyle(.tint)
       
-      NavigationLink("Go to Next Screen", value: SearchScreen.screen2)
-        .buttonStyle(.borderedProminent)
+      Text("Search Root")
+        .font(.title)
+      
+      Button("Go to Next Screen") {
+        navState.navigate(to: .screen2)
+      }
+      .buttonStyle(.borderedProminent)
     }
     .navigationTitle("Search")
   }
@@ -16,20 +23,23 @@ struct SearchView1: View {
 
 struct SearchView2: View {
   @Environment(SearchNavigationState.self) var navState
+  
   var body: some View {
     VStack(spacing: 20) {
       Text("Search Screen 2").font(.title)
       
-      NavigationLink("Go to Next Screen", value: SearchScreen.screen3)
-        .buttonStyle(.borderedProminent)
+      Button("Go to Next Screen") {
+        navState.navigate(to: .screen3)
+      }
+      .buttonStyle(.borderedProminent)
       
       Button("Go Back One Screen") {
-        navState.path.removeLast()
+        navState.popBack()
       }
       .buttonStyle(.bordered)
       
       Button("Pop to Root") {
-        navState.path.removeLast(navState.path.count)
+        navState.popToRoot()
       }
       .buttonStyle(.bordered)
       .tint(.red)
@@ -40,20 +50,23 @@ struct SearchView2: View {
 
 struct SearchView3: View {
   @Environment(SearchNavigationState.self) var navState
+  
   var body: some View {
     VStack(spacing: 20) {
       Text("Search Screen 3").font(.title)
       
-      NavigationLink("Go to Next Screen", value: SearchScreen.screen4)
-        .buttonStyle(.borderedProminent)
+      Button("Go to Next Screen") {
+        navState.navigate(to: .screen4)
+      }
+      .buttonStyle(.borderedProminent)
       
       Button("Go Back One Screen") {
-        navState.path.removeLast()
+        navState.popBack()
       }
       .buttonStyle(.bordered)
       
       Button("Pop to Root") {
-        navState.path.removeLast(navState.path.count)
+        navState.popToRoot()
       }
       .buttonStyle(.bordered)
       .tint(.red)
@@ -64,17 +77,18 @@ struct SearchView3: View {
 
 struct SearchView4: View {
   @Environment(SearchNavigationState.self) var navState
+  
   var body: some View {
     VStack(spacing: 20) {
       Text("Search Screen 4").font(.title)
       
       Button("Go Back One Screen") {
-        navState.path.removeLast()
+        navState.popBack()
       }
       .buttonStyle(.bordered)
       
       Button("Pop to Root") {
-        navState.path.removeLast(navState.path.count)
+        navState.popToRoot()
       }
       .buttonStyle(.bordered)
       .tint(.red)

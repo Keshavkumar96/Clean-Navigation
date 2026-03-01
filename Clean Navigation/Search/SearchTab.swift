@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct SearchTab: View {
-  @State private var navState = SearchNavigationState()
+  @Bindable var navState: SearchNavigationState
   
   var body: some View {
     NavigationStack(path: $navState.path) {
